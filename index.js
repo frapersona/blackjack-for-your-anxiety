@@ -94,8 +94,8 @@ function renderGame() {
 
 function nextGame() {
 
-	console.log(pMoney)
 	isAlive = true
+	hasBlackJack = false
 
 	pFirstCard = randomCard()
 	pSecondCard = randomCard()
