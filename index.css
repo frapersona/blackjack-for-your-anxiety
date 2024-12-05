@@ -1,0 +1,157 @@
+body {
+
+	font-family: 'Geo', 'Piazzolla', 'sans-serif';
+	text-align: center;
+	color: #FFFFFF;
+	background: url(Images/street.gif);
+	background-size: cover;
+	background-repeat: no-repeat;
+	margin: 0;
+	
+}
+
+@keyframes scale-down-center {
+    0% {
+      -webkit-transform: scale(1);
+              transform: scale(1);
+    }
+    100% {
+      -webkit-transform: scale(0.89);
+              transform: scale(0.89);
+    }
+  }
+
+.piazz {
+
+	font-family: 'Piazzolla', sans-serif;
+
+}
+
+.piazz-bold {
+
+	font-weight: bold;
+
+
+}
+
+h1 {
+	margin: -250px 0 14px 0;
+    font-size: 85px;
+}
+
+h4 {
+
+	margin: 0 0 0 0;
+	font-size: 20px;
+
+}
+
+
+button {
+
+	font-family: inherit;
+	border: none;
+	border-radius: 3px;
+	color: #FFFFFF;
+	background: #434743;
+
+}
+
+button:hover {
+	animation: scale-down-center 0.18s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+}
+
+button:disabled {
+	background: #1B1C1B;
+	color: #2F2F2F;
+}
+
+#buttons {
+	display: flex;
+	justify-content: center;
+}
+
+#new-game {
+
+	width: 108px;
+    height: 28px;
+    font-size: 20px;
+    margin: 21px 5px 3px 0;
+	
+}
+
+#next-game {
+	width: 108px;
+    height: 28px;
+    font-size: 20px;
+    margin: 21px 0 3px 5px;
+}
+
+#one-more-c {
+
+	width: 90px;
+	height: 24px;
+	font-size: 13px;
+	
+}
+
+#cash-in {
+
+	width: 90px;
+	height: 24px;
+	font-size: 13px;
+	background: #556758;
+
+}
+
+#cards {
+	display: flex;
+	justify-content: center;
+}
+
+#your-cards {
+	margin: 0 52px 0 0;
+}
+
+#dealer-cards {
+	margin: 0 0 0 53px;
+}
+
+.cards {
+
+	font-size: 24px;
+
+}
+
+.sum {
+
+	font-size: 32px;
+	margin: 29px 0 24px 0;
+
+}
+
+#game-msg {
+
+	font-size: 32px;
+	font-style: italic ;
+	text-decoration: underline;
+	margin: 18px 0 0 0;
+
+}
+
+.player {
+	text-align: left;
+    font-size: 18px;
+    margin: 16px 0 0 25px;
+}
+
+#player-name {
+	margin-bottom: 15px;
+	font-size: 30px;
+}
+
+#player-money {
+	margin-top: 0;
+	margin-bottom: 30px;
+	font-size: 30px;
+}

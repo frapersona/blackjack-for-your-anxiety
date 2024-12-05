@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" href="index.css">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Geo:ital@0;1&family=Piazzolla:ital,opsz,wght@0,8..30,100..900;1,8..30,100..900&display=swap" rel="stylesheet">
+		<meta charset="UTF-8">
+		<title>BlackJack for anxiety</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1">
+	</head>
+	<body>
+
+		<div class="player">
+			<p id="player-name">Name: Franco</p>
+			<p id="player-money">$ 10</p>
+			<p id="player-nat">Nationality: </p>
+			<p id ="player-age">Age:  </p>
+			<p id="player-hobby">Hobby:  </p>
+		</div>
+	
+		<h1>BlackJack</h1>
+		<h4>for purpose of your auto-induced mental-illness</h4>
+		<div id="buttons">
+			<button id="new-game" onclick="newGame()">NEW GAME</button>
+			<button id="next-game" onclick="nextGame()" disabled>Next Game</button>
+		</div>
+		
+		<div id="cards">
+			<div id="your-cards">
+				<p class="cards" id="p-cards">your <span class="piazz piazz-bold">CARDS: </span></p>
+				<p id="p-sum" class="sum piazz piazz-bold">SUM: </p>
+			</div>
+			<div id="dealer-cards">
+				<p class="cards" id="d-cards">dealer's <span class="piazz piazz-bold">CARDS: </span></p>
+				<p id="d-sum" class="sum piazz piazz-bold">SUM: </p>
+			</div>
+
+		</div>
+		
+		
+		<button id="one-more-c" onclick="newCard()">ONE MORE CARD</button>
+		<button id="cash-in" onclick="cashIn()">CASH-IN</button>
+		
+		<p id="game-msg">So...do you wanna get in?</p>
+	
+	<script src="index.js">
+	</script>
+	</body>
+</html>
