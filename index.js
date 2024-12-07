@@ -9,6 +9,8 @@ let gameMsg = document.querySelector('#game-msg')
 let pMoneyEl = document.querySelector('#player-money')
 
 let nextBtnEl = document.querySelector('#next-game')
+let cashInBtnEl = document.querySelector('#cash-in')
+let oneMoreBtnEl = document.querySelector('#one-more-c')
 
 let pFirstCard = 0
 let pSecondCard = 0
@@ -30,18 +32,13 @@ let hasBlackJack = false
 
 let pMoney = 0
 
+cashInBtnEl.disabled = true
+
 function newGame() {
 
+	assignPLayer()
+
 	gameMsg.textContent = "So...do you wanna get in?"
-
-	pFirstCard = randomCard()
-	pSecondCard = randomCard()
-	
-	pCards = [pFirstCard, pSecondCard]
-
-	pCardsC = pCards[0] + " || " + pCards[1]
-
-	pSum = pFirstCard + pSecondCard
 
 	pMoney = 10 - 5
 
@@ -49,6 +46,7 @@ function newGame() {
 
 	hasBlackJack = false
 	isAlive = true
+	cashInBtnEl.disabled = false
 	renderGame()
 }
 
@@ -76,42 +74,35 @@ function renderGame() {
 		assignDealer()
 
 		isAlive = false
-	
+
+		cashInBtnEl.disabled = true
 		gameMsg.textContent = 'fuck......i\'m so sorry. Try again?'
 
 		if (pMoney < 5) {
 			gameMsg.textContent = 'I think you can only click "new game"'
+			isAlive = false
+			cashInBtnEl.disabled = true
 		} else {
 			nextBtnEl.disabled = false
 			gameMsg.textContent = 'fuck......i\'m so sorry. Try again?'
 		}
-	
 	}
-
-
 }
 
-
 function nextGame() {
+
+	oneMoreBtnEl.disabled = false
+	cashInBtnEl.disabled = false
 
 	isAlive = true
 	hasBlackJack = false
 
-	pFirstCard = randomCard()
-	pSecondCard = randomCard()
-	
-	pCards = [pFirstCard, pSecondCard]
-
-	pCardsC = pCards[0] + " || " + pCards[1]
-
-	pSum = pFirstCard + pSecondCard
+	assignPLayer()
 
 	pMoney += - 5
 	pMoneyEl.textContent = "$ " + pMoney
 
 	renderGame()
-	nextBtnEl.disabled = true
-
 }
 
 function newCard() {
@@ -126,6 +117,9 @@ function newCard() {
 	
 		pSum += plusCard
 
+		pMoney += - 2
+		pMoneyEl.textContent = "$ " + pMoney
+
 		renderGame()
 
 	}
@@ -134,6 +128,8 @@ function newCard() {
 
 
 function cashIn() {
+
+	oneMoreBtnEl.disabled = true
 
 	if (isAlive === true) {
 
@@ -146,6 +142,7 @@ function cashIn() {
 			pMoneyEl.textContent = "$ " + pMoney
 
 			nextBtnEl.disabled = false
+			cashInBtnEl.disabled = true
 
 			gameMsg.textContent = "EVEN! EVEN! EVEN! Next Game???"
 		} else if (pSum > dSum) {
@@ -156,23 +153,35 @@ function cashIn() {
 			gameMsg.textContent = "You've beaten the dealer! Let's move on."
 
 			nextBtnEl.disabled = false
+			cashInBtnEl.disabled = true
 
 		} else {
 
-			isAlive = false
-		
-			gameMsg.textContent = 'fuck......i\'m so sorry. Try again?'
-
 			if (pMoney < 5) {
+				isAlive = false
 				gameMsg.textContent = 'I think you can only click "new game"'
 			} else {
 				nextBtnEl.disabled = false
+				cashInBtnEl.disabled = true
 				gameMsg.textContent = 'fuck......i\'m so sorry. Try again?'
 			}
 		}
 	}
 }
 
+
+function assignPLayer() {
+
+	pFirstCard = randomCard()
+	pSecondCard = randomCard()
+	
+	pCards = [pFirstCard, pSecondCard]
+
+	pCardsC = pCards[0] + " || " + pCards[1]
+
+	pSum = pFirstCard + pSecondCard
+
+}
 
 function assignDealer() {
 
